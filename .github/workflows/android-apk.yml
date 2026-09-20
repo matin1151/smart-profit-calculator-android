@@ -32,11 +32,17 @@ jobs:
       - name: نصب وابستگی‌ها
         run: npm install
 
+      - name: قرار دادن فونت فارسی داخل اپ
+        run: |
+          mkdir -p www/fonts
+          cp node_modules/vazirmatn/fonts/ttf/Vazirmatn-Regular.ttf www/fonts/Vazirmatn-Regular.ttf
+
       - name: بررسی فایل‌های برنامه
         run: |
           test -f www/index.html
           test -f www/style.css
           test -f www/app.js
+          test -f www/fonts/Vazirmatn-Regular.ttf
 
       - name: ساخت پروژه Android با Capacitor
         run: npx cap add android
