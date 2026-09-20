@@ -3,5 +3,7 @@
   "appName": "محاسبه‌گر سود هوشمند",
   "webDir": "www",
   "bundledWebRuntime": false,
-  "server": {"androidScheme": "https"}
+  "server": {
+    "androidScheme": "https"
+  }
 }
