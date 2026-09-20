@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="محاسبه‌گر هوشمند سود حرفه‌ای برای قیمت‌گذاری، محاسبه سود، مقایسه محصولات و پیش‌بینی درآمد ماهانه کسب‌وکارها.">
+<title>محاسبه‌گر هوشمند سود حرفه‌ای</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">SP</span><span>سود هوشمند</span></div>
+  <span class="badge">حرفه‌ای · هوشمندی قیمت‌گذاری</span>
+</header>
+
+<main class="container">
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">ابزار قیمت‌گذاری کسب‌وکار</p>
+    <h1>هوشمندانه قیمت‌گذاری کنید.<br><span>با اطمینان رشد کنید.</span></h1>
+    <p>سود واقعی خود را محاسبه کنید، قیمت مناسب را پیدا کنید، محصولات را مقایسه کنید و سود ماهانه را پیش‌بینی کنید؛ همه در یکجا.</p>
+    <div class="hero-pills"><span>✓ هزینه‌های واقعی</span><span>✓ قیمت‌گذاری هدفمند</span><span>✓ پیش‌بینی ماهانه</span><span>✓ مقایسه محصولات</span></div>
+  </div>
+  <div class="hero-orb"><div><b>PRO</b><small>هوشمندی<br>قیمت‌گذاری</small></div></div>
+</section>
+
+<section class="card calculator">
+  <div class="section-head">
+    <div><span class="section-kicker">مرحله ۱</span><h2>مدل قیمت‌گذاری خود را بسازید</h2><p>هر عددی را تغییر دهید؛ همه نتایج فوراً به‌روزرسانی می‌شوند.</p></div>
+    <div class="head-actions"><button id="save" class="secondary">＋ ذخیره</button><button id="reset" class="secondary">↻ بازنشانی</button></div>
+  </div>
+
+  <div class="group">
+    <div class="group-title"><span>01</span><div><h3>محصول و فروش</h3><small>چه چیزی و با چه حجمی می‌فروشید</small></div></div>
+    <div class="grid">
+      <label>محصول / خدمت<input id="product" placeholder="مثلاً شمع دست‌ساز"></label>
+      <label>واحد پول<select id="currency"><option value="تومان">تومان</option></select></label>
+      <label>تعداد فروش ماهانه<input id="units" type="number" min="1" step="1" value="100"></label>
+      <label>قیمت فروش هر واحد<input id="selling" type="number" min="0" step="0.01" value="49"></label>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-title"><span>02</span><div><h3>هزینه هر واحد</h3><small>تمام هزینه مستقیم یک فروش را وارد کنید</small></div></div>
+    <div class="grid">
+      <label>هزینه خرید هر واحد<input id="purchase" type="number" min="0" step="0.01" value="20"></label>
+      <label>هزینه ارسال هر واحد<input id="shipping" type="number" min="0" step="0.01" value="5"></label>
+      <label>هزینه بسته‌بندی هر واحد<input id="packaging" type="number" min="0" step="0.01" value="2"></label>
+      <label>هزینه نیروی کار هر واحد<input id="labor" type="number" min="0" step="0.01" value="3"></label>
+      <label>سایر هزینه‌ها هر واحد<input id="other" type="number" min="0" step="0.01" value="1"></label>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-title"><span>03</span><div><h3>کارمزد، مالیات و تعدیلات</h3><small>هزینه‌هایی که می‌توانند بی‌سر و صدا حاشیه سود شما را کاهش دهند</small></div></div>
+    <div class="grid">
+      <label>کارمزد پلتفرم ٪<input id="platformFee" type="number" min="0" max="100" step="0.1" value="8"></label>
+      <label>کارمزد پرداخت ٪<input id="paymentFee" type="number" min="0" max="100" step="0.1" value="3"></label>
+      <label>کارمزد ثابت پرداخت / سفارش<input id="fixedFee" type="number" min="0" step="0.01" value="0.30"></label>
+      <label>هزینه تبلیغات / سفارش<input id="ads" type="number" min="0" step="0.01" value="2"></label>
+      <label>مالیات / ارزش افزوده ٪<input id="tax" type="number" min="0" max="100" step="0.1" value="5"></label>
+      <label>تخفیف ٪<input id="discount" type="number" min="0" max="100" step="0.1" value="0"></label>
+      <label>حاشیه سود هدف ٪<input id="targetMargin" type="number" min="0" max="99.9" step="0.1" value="30"></label>
+    </div>
+  </div>
+
+  <div class="results-wrap">
+    <div class="result-heading"><div><span class="section-kicker">مرحله ۲</span><h2>تصمیم قیمت‌گذاری شما</h2></div><span id="status" class="status positive">سودده</span></div>
+    <div class="hero-result"><div><span>قیمت فروش پیشنهادی</span><small>قیمتی که برای رسیدن به حاشیه سود هدف نیاز دارید</small></div><strong id="recommended">۴۵٫۰۷ تومان</strong></div>
+    <div class="results">
+      <div class="metric"><span>هزینه واقعی / هر واحد</span><strong id="cost">۳۱٫۰۰ تومان</strong></div>
+      <div class="metric"><span>درآمد خالص / هر واحد</span><strong id="netRevenue">۴۳٫۰۵ تومان</strong></div>
+      <div class="metric"><span>سود خالص / هر واحد</span><strong id="profit">۱۲٫۰۵ تومان</strong></div>
+      <div class="metric"><span>حاشیه سود</span><strong id="margin">۲۸٫۰۰٪</strong></div>
+      <div class="metric"><span>ضریب افزایش قیمت</span><strong id="markup">۳۸٫۸۷٪</strong></div>
+      <div class="metric"><span>بازده سرمایه</span><strong id="roi">۳۸٫۸۷٪</strong></div>
+      <div class="metric"><span>قیمت سربه‌سر</span><strong id="breakEven">۳۵٫۴۱ تومان</strong></div>
+      <div class="metric"><span>تعداد سربه‌سر</span><strong id="breakEvenUnits">1</strong></div>
+      <div class="metric"><span>سود تخمینی ماهانه</span><strong id="totalProfit">۱٬۲۰۵٫۰۰ تومان</strong></div>
+    </div>
+    <div class="bar-label"><span>حاشیه سود فعلی</span><b id="barValue">۲۸٫۰۰٪</b></div>
+    <div class="bar"><div id="profitBar"></div></div>
+    <div class="insight" id="message"></div>
+    <div class="summary"><h3>تفکیک فروش ماهانه</h3><div class="summary-grid">
+      <div><span>فروش ناخالص</span><b id="grossSales">۴٬۹۰۰٫۰۰ تومان</b></div>
+      <div><span>کارمزد و مالیات</span><b id="fees">۹۸۰٫۰۰ تومان</b></div>
+      <div><span>مالیات / ارزش افزوده</span><b id="taxAmount">۲۴۵٫۰۰ تومان</b></div>
+      <div><span>کل هزینه‌ها</span><b id="variableCosts">۰ تومان</b></div>
+    </div></div>
+    <div class="actions"><button id="copy" class="primary">کپی نتایج</button><button id="pdf" class="secondary">چاپ / ذخیره PDF</button><span id="copied" class="copied"></span></div>
+  </div>
+</section>
+
+<section class="card tool-card">
+  <div class="section-head compact"><div><span class="section-kicker">مرحله ۳</span><h2>محصولات خود را مقایسه کنید</h2><p>محاسبات بالا را ذخیره کنید و اقتصاد محصولات را در کنار هم مقایسه کنید.</p></div></div>
+  <div id="savedEmpty" class="empty">هنوز محصولی ذخیره نشده است. پس از محاسبه محصول، روی <b>＋ ذخیره</b> بزنید.</div>
+  <div class="table-wrap"><table id="compareTable"><thead><tr><th>محصول</th><th>قیمت</th><th>هزینه</th><th>سود / هر واحد</th><th>حاشیه سود</th><th>سود ماهانه</th><th></th></tr></thead><tbody></tbody></table></div>
+</section>
+
+
+<section class="card scenarios">
+  <div class="section-head compact"><div><span class="section-kicker">مرحله ۴</span><h2>سناریوهای قیمت‌گذاری</h2><p>ببینید حاشیه سودهای هدف مختلف چگونه به قیمت فروش و سود تبدیل می‌شوند.</p></div></div>
+  <div class="scenario-grid" id="scenarioGrid"></div>
+</section>
+
+<section class="card chart-card">
+  <div class="section-head compact"><div><span class="section-kicker">حساسیت سود به قیمت</span><h2>سود در برابر قیمت</h2><p>ببینید با تغییر قیمت فروش، سود شما چگونه تغییر می‌کند.</p></div></div>
+  <div class="chart-wrap"><canvas id="profitChart" width="1000" height="360"></canvas></div>
+  <div class="chart-legend"><span><i></i> سود خالص هر واحد</span><b id="chartRange"></b></div>
+</section>
+<section class="card forecast">
+  <div class="section-head compact"><div><span class="section-kicker">مرحله ۴</span><h2>پیش‌بینی سود ماهانه</h2><p>ببینید وضعیت فعلی کسب‌وکار شما چه درآمد و سود ماهانه‌ای ایجاد می‌کند.</p></div></div>
+  <div class="forecast-grid">
+    <div class="forecast-card"><span>فروش ماهانه</span><b id="fUnits">100</b></div>
+    <div class="forecast-card"><span>درآمد ماهانه</span><b id="fRevenue">۴٬۹۰۰ تومان</b></div>
+    <div class="forecast-card accent"><span>سود خالص ماهانه</span><b id="fProfit">۱٬۲۰۵ تومان</b></div>
+    <div class="forecast-card"><span>سود سالانه</span><b id="fAnnual">۱۴٬۴۶۰ تومان</b></div>
+  </div>
+  <div class="forecast-bar"><div id="forecastFill"></div></div>
+  <div class="forecast-note">این پیش‌بینی بر اساس تعداد فروش، قیمت، هزینه‌ها، کارمزد، مالیات و تخفیف فعلی شما انجام می‌شود.</div>
+</section>
+
+<section class="how"><div class="section-head compact"><div><span class="section-kicker">چرا مهم است</span><h2>یک داشبورد برای قیمت‌گذاری بهتر</h2><p>پیش از تعیین قیمت، اقتصاد واقعی هر محصول را به‌خوبی بشناسید.</p></div></div>
+<div class="features"><div><span class="feature-icon one">01</span><b>اقتصاد واقعی هر واحد</b><p>ببینید هر فروش پس از هزینه‌های مستقیم و هزینه‌های فروش واقعاً چقدر برای شما تمام می‌شود.</p></div>
+<div><span class="feature-icon two">02</span><b>قیمت‌گذاری مبتنی بر هدف</b><p>قیمت لازم برای رسیدن به حاشیه سود موردنظر را محاسبه کنید.</p></div>
+<div><span class="feature-icon three">03</span><b>مقایسه و پیش‌بینی</b><p>محصولات را ذخیره کنید، سودآوری را مقایسه و درآمد ماهانه را برآورد کنید.</p></div></div></section>
+</main>
+<footer>محاسبه‌گر هوشمند سود حرفه‌ای · هوشمندی قیمت‌گذاری برای کسب‌وکارهای کوچک</footer>
+<script src="app.js"></script>
+</body>
+</html>
