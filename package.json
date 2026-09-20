@@ -4,16 +4,20 @@
   "private": true,
   "description": "نسخه اندروید محاسبه‌گر سود هوشمند بیدرانو",
   "scripts": {
-    "cap:init": "cap init",
+    "prepare": "node scripts/prepare-assets.mjs",
     "cap:add:android": "cap add android",
-    "cap:sync": "cap sync android",
+    "cap:sync": "npm run prepare && cap sync android",
     "cap:open": "cap open android",
-    "build": "cap sync android && cd android && ./gradlew assembleDebug"
+    "build": "npm run prepare && cap sync android && cd android && ./gradlew assembleDebug",
+    "test": "node tests/calculations.test.mjs"
   },
   "dependencies": {
-    "@capacitor/android": "^7.4.3",
-    "@capacitor/cli": "^7.4.3",
-    "@capacitor/core": "^7.4.3",
-    "vazirmatn": "33.0.3"
+    "@capacitor/android": "7.4.3",
+    "@capacitor/cli": "7.4.3",
+    "@capacitor/core": "7.4.3",
+    "@capacitor/filesystem": "7.4.3",
+    "@capacitor/share": "7.4.3",
+    "vazirmatn": "33.0.3",
+    "xlsx": "0.18.5"
   }
 }
