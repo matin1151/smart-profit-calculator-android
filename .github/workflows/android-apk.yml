@@ -19,9 +19,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: نصب Node.js
-  uses: actions/setup-node@v4
-  with:
-    node-version: 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
       - name: نصب Java
         uses: actions/setup-java@v4
